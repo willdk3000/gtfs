@@ -17,6 +17,7 @@ exports.up = function(knex, Promise) {
             tableshapearrets.stop_sequence,
             tableshapearrets.shape_id,
             tableshapearrets.trip_id,
+            tableshapearrets.departure_time,
             stops.stop_name,
             stops.stop_code,
             stops.point_geog

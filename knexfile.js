@@ -17,12 +17,7 @@ module.exports = {
 
   production: {
     client: 'postgresql',
-    connection: {
-      host : 'localhost',
-      user : 'postgres',
-      password : 'abc123',
-      database : 'gtfs'
-    },
+    connection: process.env.DATABASE_URL,
     migrations: {
       directory: __dirname + '/migrations'
     }
