@@ -29,6 +29,7 @@ module.exports = {
         
             
             case ':filtreStops':
+            console.log(req.body.requete);
             return knex.raw(
                 `SELECT jsonb_build_object(
                     'type', 'FeatureCollection',

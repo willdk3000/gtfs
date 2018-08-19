@@ -13,7 +13,6 @@ if (process.env.NODE_ENV !== 'test') {
   }
   
 app.use(bodyParser.json());
-//app.use(bodyParser.json({ type: 'application/*+json' }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cookieParser());
@@ -26,9 +25,6 @@ app.use('/assets', express.static('public'))
  // La catch-all route doit être après les static files
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
 
-//app.use('/', routes);
-
-//app.use('/api/stops', stops);
 
 // Require our routes into the application.
 require('./routes')(app);

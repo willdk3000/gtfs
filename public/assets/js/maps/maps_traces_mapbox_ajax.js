@@ -55,7 +55,7 @@ $(document).ready(function () {
 
     //identifier la ligne choisie dans la boite de sélection
     var ligneValue = document.getElementById("Lignes").value;
-    var requeteLigne=ligneValue;
+
 
     map.getSource("arrets").setData(emptyGeoJSON);
 
@@ -84,7 +84,7 @@ $(document).ready(function () {
             url: '/api/traces/:showRoutes',
             dataType: 'json',
             data: {
-                requete:requeteLigne
+                requete:ligneValue
             },
             
             success: function(data) {
