@@ -1,0 +1,5 @@
+﻿service_id,date,exception_type
+SE,20180903,2
+F1,20180903,1
+SE,20181008,2
+F2,20181008,1

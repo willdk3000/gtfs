@@ -1,0 +1,2 @@
+﻿agency_id,agency_name,agency_url,agency_timezone,agency_phone,agency_lang,agency_fare_url
+RTL,Réseau de transport de Longueuil,http://www.rtl-longueuil.qc.ca,America/Montreal,(450) 463-0131,fr,http://www.rtl-longueuil.qc.ca/fr-CA/tarifs/

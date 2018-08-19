@@ -1,0 +1,2 @@
+﻿fare_id,price,currency_type,payment_method,transfers,transfer_duration
+Regulier,3.25,CAD,0,,0

@@ -1,0 +1,101 @@
+﻿route_id,route_short_name,route_long_name,route_type,route_color,route_text_color
+1,1,Victoria / Churchill,3,A32638,FFFFFF
+2,2,Tiffin / St-Georges,3,A32638,FFFFFF
+3,3,Montgomery,3,A32638,FFFFFF
+4,4,Taschereau / Payer,3,A32638,FFFFFF
+5,5,mtée St-Hubert / Maisonneuve,3,A32638,FFFFFF
+6,6,Victoria,3,A32638,FFFFFF
+8,8,ch. de Chambly / Promenades St-Bruno,3,A32638,FFFFFF
+9,9,Secteurs L-M / St-Hubert,3,A32638,FFFFFF
+10,10,Roland-Therrien / Belcourt,3,A32638,FFFFFF
+13,13,Riverside,3,A32638,FFFFFF
+14,14,Rome / DIX30,3,A32638,FFFFFF
+15,15,Churchill,3,A32638,FFFFFF
+16,16,Nobert / King-George / Adoncour,3,A32638,FFFFFF
+17,17,Roland-Therrien / Roberval,3,A32638,FFFFFF
+19,19,Davis,3,A32638,FFFFFF
+20,20,Jean-Paul-Vincent / Beauharnois,3,A32638,FFFFFF
+21,21,Grande Allée,3,A32638,FFFFFF
+22,22,Gare Longueuil-St-Hubert/Sect. B,3,A32638,FFFFFF
+23,23,Ste-Hélène / Jacques-Cartier,3,A32638,FFFFFF
+25,25,Parcs industriels,3,A32638,FFFFFF
+28,28,ch. de Chambly / Aéroport,3,A32638,FFFFFF
+29,29,Collectivité nouvelle,3,A32638,FFFFFF
+30,30,Secteurs P-V,3,A32638,FFFFFF
+31,31,Secteurs R-S-T / boul. St-Laurent,3,A32638,FFFFFF
+32,32,Secteur B / Mountainview,3,A32638,FFFFFF
+33,33,Secteurs M-N-O,3,A32638,FFFFFF
+34,34,Secteur A / Bellevue,3,A32638,FFFFFF
+35,35,Secteur L / DIX30 / TCV,3,A32638,FFFFFF
+37,37,Simard / du Béarn,3,A32638,FFFFFF
+38,38,boul. Chevrier / Secteur B,3,A32638,FFFFFF
+39,39,Panama / Quartier DIX30,3,A32638,FFFFFF
+41,41,de Rome / Milan,3,A32638,FFFFFF
+42,42,Gaétan Boucher / Parc de la Cité,3,A32638,FFFFFF
+43,43,Milan / de Rome,3,A32638,FFFFFF
+44,44,Secteurs M-N-O,3,A32638,FFFFFF
+45,45,Express Panama / TCV,3,A32638,FFFFFF
+46,46,Secteurs R-S-T,3,A32638,FFFFFF
+47,47,Secteurs R-S-T,3,A32638,FFFFFF
+49,49,Secteurs R-S,3,A32638,FFFFFF
+50,50,Prince-Charles,3,A32638,FFFFFF
+54,54,Taschereau,3,A32638,FFFFFF
+55,55,Victoria / Wellington,3,A32638,FFFFFF
+59,59,Gareau,3,A32638,FFFFFF
+60,60,Milan / Gaétan-Boucher / Promenades St-Bruno,3,A32638,FFFFFF
+61,61,Boucherville / Terminus Radisson,3,A32638,FFFFFF
+71,71,Curé-Poirier,3,A32638,FFFFFF
+73,73,Joliette / de Lyon,3,A32638,FFFFFF
+74,74,St-Laurent / Bellerive,3,A32638,FFFFFF
+75,75,Quinn / Brébeuf,3,A32638,FFFFFF
+76,76,Roberval / Beliveau / R.-Therrien,3,A32638,FFFFFF
+77,77,Taschereau / Matte,3,A32638,FFFFFF
+78,78,Adoncour / du Colisée,3,A32638,FFFFFF
+80,80,De Montarville / Carrefour de la Rive-Sud,3,A32638,FFFFFF
+81,81,du Fort-St-Louis / Marie-Victorin,3,A32638,FFFFFF
+82,82,Marie-Victorin / du Fort-St-Louis,3,A32638,FFFFFF
+83,83,De Montarville / Samuel-De Champlain,3,A32638,FFFFFF
+84,84,Samuel-De Champlain / De Montarville,3,A32638,FFFFFF
+85,85,de Gascogne,3,A32638,FFFFFF
+86,86,Samuel-De Champlain / De Montarville / Montréal,3,A32638,FFFFFF
+87,87,Marie-Victorin / du Fort St-Louis / Montréal,3,A32638,FFFFFF
+88,88,ch. de Chambly / Mountainview,3,A32638,FFFFFF
+90,90,Express Chevrier / TCV,3,A32638,FFFFFF
+91,91,Gare St-Bruno,3,A32638,FFFFFF
+92,92,Yvonne-Duckett / Montarville / Gare St-Bruno,3,A32638,FFFFFF
+98,98,Promenades St-Bruno / Parc industriel,3,A32638,FFFFFF
+99,99,Saint-Bruno,3,A32638,FFFFFF
+106,106,Secteur B / Victoria,3,A32638,FFFFFF
+115,115,Churchill,3,A32638,FFFFFF
+120,120,Lalande,3,A32638,FFFFFF
+123,123,Jacques-Cartier / Parcs industriels,3,A32638,FFFFFF
+125,125,Pratt & Whitney,3,A32638,FFFFFF
+128,128,Zone aéroportuaire,3,A32638,FFFFFF
+132,132,Parc de la Cité / Westley,3,A32638,FFFFFF
+135,135,Secteur L / DIX30 / TCV,3,A32638,FFFFFF
+142,142,Gaétan Boucher / Pacific,3,A32638,FFFFFF
+144,144,des Prairies / Océanie / Naples / Malo,3,A32638,FFFFFF
+150,150,Orchard,3,A32638,FFFFFF
+161,161,Stationn. de Mortagne/J.-Cartier/Roland-Therrien,3,A32638,FFFFFF
+170,170,Ste-Hélène / Jacques-Cartier,3,A32638,FFFFFF
+177,177,Taschereau / Ste-Foy,3,A32638,FFFFFF
+180,180,Boucherville - des Sureaux,3,A32638,FFFFFF
+185,185,Ampère / Gay-Lussac,3,A32638,FFFFFF
+192,192,Yvonne-Duckett / Montarville,3,A32638,FFFFFF
+199,199,Seigneurial / Grand Boulevard,3,A32638,FFFFFF
+410,410,Express Roland-Therrien / Belcourt,3,A32638,FFFFFF
+417,417,Express Roland-Therrien / Roberval,3,A32638,FFFFFF
+818,T18,Taxi - Aéroport,3,A32638,FFFFFF
+819,T19,Taxi - Jacques-Cartier,3,A32638,FFFFFF
+820,T20,Taxi - ch. de Chambly - Pacific,3,A32638,FFFFFF
+821,T21,Taxi - Parc industriel :  J.-A.-Bombardier,3,A32638,FFFFFF
+822,T22,Taxi - Parc industriel :  Leclerc,3,A32638,FFFFFF
+823,T23,Taxi - Vauquelin,3,A32638,FFFFFF
+848,T48,Taxi - Terminus Panama - Marie-Victorin,3,A32638,FFFFFF
+877,T77,Taxi - Matte,3,A32638,FFFFFF
+889,T89,Taxi - Parc industriel : Eiffel,3,A32638,FFFFFF
+890,T90,Taxi - des Ateliers - Maison Source Bleue,3,A32638,FFFFFF
+892,T92,Taxi - Parc industriel : Gay-Lussac,3,A32638,FFFFFF
+893,T93,Taxi - de Mortagne - du Boisé - ch. de Touraine,3,A32638,FFFFFF
+894,T94,Taxi - St-Bruno - St-Basile,3,A32638,FFFFFF
+897,T97,Taxi - Gare de St-Basile-le-Grand,3,A32638,FFFFFF

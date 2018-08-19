@@ -22,13 +22,22 @@
   "homepage": "https://github.com/willdk3000/gtfs#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
+    "knex": "^0.15.2",
     "morgan": "^1.9.0",
-    "nodemon": "^1.18.3",
     "pg": "^7.4.3",
     "pg-hstore": "^2.3.2",
-    "pg-promise": "^8.4.5",
-    "sequelize": "^4.38.0",
-    "sequelize-cli": "^4.0.0"
+    "pg-promise": "^8.4.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3",
+    "gulp": "latest",
+    "gulp-util": "latest",
+    "gulp-sass": "latest",
+    "gulp-coffee": "latest",
+    "gulp-uglify": "latest",
+    "gulp-concat": "latest",
+    "gulp-connect": "latest"
   }
 }

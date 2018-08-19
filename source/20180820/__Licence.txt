@@ -1,0 +1,26 @@
+Conditions d’utilisation
+ 
+Le Réseau de Transport de Longueuil (RTL) vous octroie par la présente les droits non-exclusifs, limités et révocables d’utilisation, de reproduction et de redistribution des
+informations portant sur les horaires et tracés d’autobus (informations) en format GTFS, assujettis aux termes suivants :
+ 
+-Le RTL conserve tous les droits, titres et intérêts de quelque nature sur les informations, y compris sans restreindre la généralité qui précède ses droits sur la propriété
+ intellectuelle liée aux informations, incluant tout droit d’auteur. Vous n’acquérez aucun droit en utilisant, modifiant ou redistribuant les informations. 
+ Aucune utilisation commerciale ou quasi-commerciale des informations n’est autorisée en vertu de l’entente sans l’autorisation au préalable et par écrit du RTL.
+ 
+-Toute marque officielle du RTL et tout matériel protégé par des droits d’auteur ne peut être utilisé sans l’autorisation au préalable et par écrit du RTL.
+
+-Les informations sont fournies de manière « telles qu’elles ». Le RTL ne garantit pas que les informations sont exemptes d'anomalies, d'erreurs ou de bogues, ni que celles-ci pourront
+ être corrigées, ni que le site fonctionnera sans interruption ou pannes.  En aucun cas le RTL ou ses employés ne sera tenu responsable de tout type de dommage prévisible ou imprévisible 
+ (incluant la perte de profits ou d'opportunité) découlant de l'utilisation ou de l'impossibilité totale ou partielle d'utiliser les informations. 
+ 
+-Le RTL se réserve le droit de modifier ou retirer les informations à n’importe quel moment sans avis préalable.
+ 
+-En téléchargeant ou utilisant les informations du RTL, vous acceptez les termes et conditions de cette entente.
+ 
+-Les termes contenus dans cette entente remplacent toute discussion, entente ou représentation antérieure entre le RTL et vous, et ne peuvent être amendés qu’avec l’approbation au préalable
+ et par écrit du RTL.
+
+-En raison d’impondérables, les informations portant sur les horaires d’autobus sont sujets à changements sans préavis.
+ 
+Vous devez accepter ces termes et conditions pour télécharger le fichier.
+
