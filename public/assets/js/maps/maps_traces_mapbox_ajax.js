@@ -36,6 +36,9 @@ $(document).ready(function () {
          zoom: 11 // starting zoom
     });
 
+    //Ajout des boutons de contrôle dans le coin supérieur droit
+    map.addControl(new mapboxgl.NavigationControl());
+
     var emptyGeoJSON = {"type": "FeatureCollection", "features": []}
 
     map.on('load', function () {
