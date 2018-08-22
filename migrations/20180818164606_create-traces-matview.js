@@ -20,10 +20,7 @@ exports.up = function(knex, Promise) {
             trips.direction_id
            FROM tableroutes
              JOIN trips ON trips.shape_id = tableroutes.shape_id
-        WITH DATA;
-        
-        ALTER TABLE public.traces
-            OWNER TO postgres;`   
+        WITH DATA;`   
     );  
 };
 

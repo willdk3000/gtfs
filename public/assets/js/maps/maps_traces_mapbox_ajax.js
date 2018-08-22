@@ -118,6 +118,7 @@ $(document).ready(function () {
             }
         })
 
+        //afficher le bon shape
         document.getElementById("filtreTrace").addEventListener("click", function() {
 
             let traceValue = document.getElementById("Trace").value.toString();
@@ -159,6 +160,7 @@ $(document).ready(function () {
 
             });
 
+            //afficher les arrêts et les heures de passages
             $.ajax({
                 type: "POST",
                 url: '/api/stops/:filtreStops',
@@ -192,9 +194,10 @@ $(document).ready(function () {
                 map.on('click', 'arrets', function(e) {
                     let num= e.features[0].properties.code;
                     let nom = e.features[0].properties.name;
+                    let departs = JSON.parse(JSON.stringify(e.features[0].properties.departs));
                     var feature = e.features[0];
                     new mapboxgl.Popup().setLngLat(map.unproject(e.point))
-                        .setHTML("Arrêt " + num + "<br/>" + nom )
+                        .setHTML("Arrêt " + num + "<br/>" + nom + "<br/>" + departs )
                         .addTo(map);
                 });
 
