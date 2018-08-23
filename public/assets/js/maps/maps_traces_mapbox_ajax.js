@@ -194,10 +194,19 @@ $(document).ready(function () {
                 map.on('click', 'arrets', function(e) {
                     let num= e.features[0].properties.code;
                     let nom = e.features[0].properties.name;
-                    let departs = JSON.parse(JSON.stringify(e.features[0].properties.departs));
+                    let departs = JSON.parse(e.features[0].properties.departs);
+
+                    //création de la table qui contient les heures de passage
+                    var $tableBody = $('<table></table>');
+                    departs.forEach(function(e){
+                        var $row = $('<tr></tr>');
+                        $row.append($('<td></td>').text(e));
+                        $tableBody.append($row);
+                    })
+                                                            
                     var feature = e.features[0];
                     new mapboxgl.Popup().setLngLat(map.unproject(e.point))
-                        .setHTML("Arrêt " + num + "<br/>" + nom + "<br/>" + departs )
+                        .setHTML("Arrêt " + num + "<br/>" + nom + "<br/>" + $tableBody[0].outerHTML )
                         .addTo(map);
                 });
 

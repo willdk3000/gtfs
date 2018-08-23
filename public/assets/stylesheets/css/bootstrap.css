@@ -192,7 +192,10 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-td,
+td {
+  padding: 0;
+  text-align:center;
+}
 th {
   padding: 0;
 }
