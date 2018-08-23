@@ -17,6 +17,7 @@
 
 	<!-- theme stylesheets -->
 	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css' rel='stylesheet' />
+	<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.4/mapbox-gl-draw.css' type='text/css' />
 	<!-- /theme stylesheets -->
 
 	<!-- Core JS files -->
@@ -28,9 +29,9 @@
 	<script type="text/javascript" src="assets/js/core/app.js"></script>
 	<!-- /core JS files -->
 
-
 	<!-- theme JS files -->
 	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js'></script>
+	<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.4/mapbox-gl-draw.js'></script>
 	<script type="text/javascript" src="assets/js/maps/maps_traces_mapbox_ajax.js"></script>
 	<!-- /theme JS files -->
 
@@ -163,21 +164,19 @@
 									</ul>
 								</li>
 								<li>
-									<a href="#"><i class="icon-stats-bars3"></i> <span>Profils de lignes</span></a>
+									<a href="#"><i class="icon-stats-bars3"></i> <span>Profils de charge</span></a>
 									<ul>
 
-										<li><a href="dimple_lines_horizontal.html">Montants/Descendants</a></li>
+										<li><a href="histogrammes.html">Histogramme</a></li>
+										<li><a href="cartographie.html">Cartographie</a></li>
 
 									</ul>
 								</li>
 								<li>
-									<a href="#"><i class="icon-map5"></i> <span>Cartographie</span></a>
+									<a href="#"><i class="icon-map5"></i> <span>GTFS</span></a>
 									<ul>
                                         <li><a href="maps_arrets_mapbox_ajax.html">Arrêts</a></li>    
                                         <li class="active"><a href="maps_traces_mapbox_ajax.html">Tracés</a></li>
-										<!--<li><a href="maps_google_markers.html">Markers</a></li>
-										<li><a href="maps_google_drawings.html">Map drawings</a></li>
-										<li><a href="maps_google_layers.html">Layers</a></li>-->
 									</ul>
 								</li>
 								<!-- /data visualization -->
@@ -196,12 +195,8 @@
 								<li>
 									<a href="#"><i class="icon-sphere"></i> <span>Réseaux</span></a>
 									<ul>
-										<li><a href="datatable_basic.html">Basic initialization</a></li>
-										<li><a href="datatable_styling.html">Basic styling</a></li>
-										<li><a href="datatable_advanced.html">Advanced examples</a></li>
-										<li><a href="datatable_sorting.html">Sorting options</a></li>
-										<li><a href="datatable_api.html">Using API</a></li>
-										<li><a href="datatable_data_sources.html">Data sources</a></li>
+										<li><a href="reseau_stm.html">STM</a></li>
+										<li><a href="reseau_stl.html">STL</a></li>
 									</ul>
 								</li>
 							</ul>

@@ -39,6 +39,17 @@ $(document).ready(function () {
     //Ajout des boutons de contrôle dans le coin supérieur droit
     map.addControl(new mapboxgl.NavigationControl());
 
+    //Ajout de la fonction mapbox gl draw (dessin de ligne pour calcul d'intersection avec les shapes du réseau)
+    var draw = new MapboxDraw({
+        displayControlsDefault: false,
+        controls: {
+            line_string: true,
+        }
+    });
+    map.addControl(draw);
+
+    
+
     var emptyGeoJSON = {"type": "FeatureCollection", "features": []}
 
     map.on('load', function () {
