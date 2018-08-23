@@ -12,7 +12,7 @@ module.exports = {
 
             case ':getRoutes':
             return knex.raw(
-                'SELECT DISTINCT route_id FROM "routes" ORDER BY route_id', 
+                `SELECT DISTINCT route_id FROM "trips" WHERE service_id = '${req.body.service_id}' ORDER BY route_id`, 
             )
             .then(result => {
                 res.json(result)
@@ -43,7 +43,7 @@ module.exports = {
       
             case ':getTraces':
             return knex.raw(
-                `SELECT DISTINCT shape_id FROM "trips" WHERE route_id=${req.body.requete} ORDER BY shape_id`, 
+                `SELECT DISTINCT shape_id FROM "trips" WHERE route_id=${req.body.ligne} ORDER BY shape_id`, 
             )
             .then(result => {
                 res.json(result)
@@ -66,7 +66,7 @@ module.exports = {
                                 'direction', direction_id)        
                   ) AS feature
                  
-                  FROM (SELECT * FROM traces WHERE shape_id='${req.body.requete}') inputs) features;`,   
+                  FROM (SELECT * FROM traces WHERE shape_id='${req.body.trace}') inputs) features;`,   
             ).then(result => {
                 res.json(result)
             });

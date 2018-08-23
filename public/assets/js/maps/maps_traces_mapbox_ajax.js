@@ -13,9 +13,9 @@ $(document).ready(function () {
     $.ajax({
         url:'/api/traces/:getRoutes',
         type:'POST',
-        //data: {
-        //    requete:test
-        //},
+        data: {
+            service_id:'SE'
+        },
         dataType: 'json',
         success:    
             function( json ) {
@@ -69,7 +69,7 @@ $(document).ready(function () {
         url:'/api/traces/:getTraces',
         type:'POST',
         data: {
-            requete:ligneValue
+            ligne:ligneValue,
         },
         dataType: 'json',
         success:    
@@ -129,7 +129,9 @@ $(document).ready(function () {
                 type: "POST",
                 url: '/api/traces/:showTrace',
                 dataType: 'json',
-                data: {requete:traceValue},
+                data: {
+                    trace:traceValue
+                },
                 
                 success: function(data) {
                 
@@ -166,7 +168,7 @@ $(document).ready(function () {
                 url: '/api/stops/:filtreStops',
                 dataType: 'json',
                 data: {
-                    requete:traceValue
+                    trace:traceValue
                 },
                 
                 success: function(data) {

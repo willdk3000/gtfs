@@ -44,7 +44,7 @@ module.exports = {
                         'name', stop_name,
                         'departs', departs)
                     ) AS feature 
-                FROM (SELECT * FROM stop_triptimes WHERE shape_id ='${req.body.requete}') inputs) features;`) 
+                FROM (SELECT * FROM stop_triptimes WHERE shape_id ='${req.body.trace}') inputs) features;`) 
             .then(result => {
                 res.json(result)
             })
