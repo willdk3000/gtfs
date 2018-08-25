@@ -4,6 +4,10 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
 var app = express();
 
 //app.use(favicon());
