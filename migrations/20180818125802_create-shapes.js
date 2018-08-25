@@ -1,6 +1,6 @@
 
 exports.up = function(knex, Promise) {
-    return knex.schema.createTable('shapes', (table) => {
+    return knex.schema.createTable('public.shapes', (table) => {
         table.text('shape_id');
         table.double('shape_pt_lat');
         table.double('shape_pt_lon');

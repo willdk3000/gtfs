@@ -19,8 +19,8 @@ exports.up = function(knex, Promise) {
             trips.route_id,
             trips.direction_id
            FROM tableroutes
-             JOIN trips ON trips.shape_id = tableroutes.shape_id
-        WITH DATA;`   
+            LEFT JOIN trips ON trips.shape_id = tableroutes.shape_id
+        WITH NO DATA;`   
     );  
 };
 

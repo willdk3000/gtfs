@@ -15,7 +15,7 @@ exports.up = function(knex, Promise) {
         FROM stop_traces
         WHERE stop_traces.service_id = 'SE'::text
         GROUP BY shape_id, stop_id, service_id, stop_name, stop_code, point_geog
-        WITH DATA;`
+        WITH NO DATA;`
     )
 };
 

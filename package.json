@@ -36,6 +36,7 @@
     "nodemon": "^1.18.3",
     "gulp": "latest",
     "gulp-util": "latest",
+    "gulp-run": "latest",
     "gulp-sass": "latest",
     "gulp-coffee": "latest",
     "gulp-uglify": "latest",

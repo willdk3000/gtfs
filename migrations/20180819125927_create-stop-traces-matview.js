@@ -26,7 +26,7 @@ exports.up = function(knex, Promise) {
         FROM tableshapearrets
             LEFT JOIN stops ON stops.stop_id = tableshapearrets.stop_id
         ORDER BY tableshapearrets.trip_id, tableshapearrets.shape_id, tableshapearrets.stop_sequence
-        WITH DATA;`   
+        WITH NO DATA;`   
     );  
 };
 
