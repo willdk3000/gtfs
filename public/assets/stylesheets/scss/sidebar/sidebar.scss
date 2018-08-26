@@ -1,0 +1,10 @@
+//les variables sont créées selon leur scope
+$abcColor: #abcddf;
+header {
+    $abColor: #abcddf;
+    background: $abcColor;
+  }
+
+  p {
+    color: $abcColor;
+  }

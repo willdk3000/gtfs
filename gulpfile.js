@@ -3,12 +3,13 @@
 const gulp = require('gulp'),
     gutil = require('gulp-util'),
     knex = require('./config/knex'),
-    shell = require('gulp-shell')
+    shell = require('gulp-shell'),
+    sass   = require('gulp-sass');
 
 //Initialisation
-gulp.task('default', function() {
-    return gutil.log('Gulp is running!')
-});
+//gulp.task('default', function() {
+//    return gutil.log('Gulp is running!')
+//});
 
 //Importer tables
 gulp.task('import_tables', function() {
@@ -31,6 +32,15 @@ gulp.task('import_tables', function() {
 });
 
 
+gulp.task('build-css', function() {
+    return gulp.src('./public/assets/stylesheets/scss/**/*.scss')
+      .pipe(sass())
+      .pipe(gulp.dest('./public/assets/stylesheets/css'));
+  });
+
+gulp.task('watch', function() {
+    gulp.watch('./public/assets/stylesheets/scss/**/*.scss', ['build-css']);
+  });
 
 
 

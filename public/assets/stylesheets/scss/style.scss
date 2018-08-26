@@ -1,0 +1,14 @@
+//créer des variables
+//les variables ne sont pas compilées explicitement
+$cooleColor: #eeffcd;
+
+//les variables sont créées selon leur scope
+body {
+    $primaryColor: #ccc;
+    background: $cooleColor;
+  }
+  
+p {
+  color: $cooleColor;
+}
+
