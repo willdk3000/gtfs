@@ -72,6 +72,18 @@ module.exports = {
             });
             break;
 
+            case ':intersects':
+            return knex.raw(
+                `SELECT *
+                FROM traces
+                WHERE st_intersects(ST_SetSRID(ST_GeomFromGeoJSON(
+                    '${req.body.intersect}'
+                    ),4326), traces.routes) = true`,   
+            ).then(result => {
+                res.json(result)
+            });
+            break;
+
         }
     }
 }

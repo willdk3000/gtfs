@@ -26,7 +26,7 @@ $(document).ready(function () {
     }); 
 
 
-    //génération de la carte   
+    //***------------------------------Génération de la carte------------------------------***
      mapboxgl.accessToken = 'pk.eyJ1Ijoid2RvdWNldGsiLCJhIjoiY2pnamprcmpjMGYwbDJ4cW5qa2luYTVmZSJ9.q0GEqGvVpCyvAY09gr4vsA';
                     
     var map = new mapboxgl.Map({
@@ -48,8 +48,7 @@ $(document).ready(function () {
     });
     map.addControl(draw);
 
-    
-
+    //Ajout des sources de données pour la génération des couches
     var emptyGeoJSON = {"type": "FeatureCollection", "features": []}
 
     map.on('load', function () {
@@ -65,6 +64,7 @@ $(document).ready(function () {
             });
     })
 
+    //***------------------------------Fonctions associées à la sélection de ligne------------------------------***
     document.getElementById("filtreLigne").addEventListener("click", function() {
 
     //identifier la ligne choisie dans la boite de sélection
@@ -238,6 +238,35 @@ $(document).ready(function () {
         })
 
     })
+
+    //***------------------------------Module intersect------------------------------***
+    
+    //Popup contenant le tableau des lignes intersectant la ligne dessinée pour l'analyse de corridor
+    let intersectPopup = new mapboxgl.Popup(
+        {closeOnClick: false}
+    );
+    intersectPopup.on('close', () => {
+        draw.deleteAll();
+    });
+
+    map.on('draw.create', () => {
+        let ligne_intersect = JSON.stringify(draw.getAll().features[0].geometry);
+        console.log(ligne_intersect);
+        $.ajax({
+            type: "POST",
+            url: '/api/traces/:intersects',
+            dataType: 'json',
+            data: {
+                intersect:ligne_intersect
+            },
+            
+            success: function(data) {
+                
+                console.log(data);
+
+            }
+        })
+    })
+
 })
 
-    
