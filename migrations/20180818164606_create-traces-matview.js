@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
         TABLESPACE pg_default
         AS
          WITH tableroutes AS (
-                 SELECT st_makeline(bp.point_geom) AS routes,
+                 SELECT st_makeline(bp.point_geom) AS routes_geom,
                     bp.shape_id
                    FROM ( SELECT shapes.point_geom,
                             shapes.shape_id
@@ -14,7 +14,7 @@ exports.up = function(knex, Promise) {
                           ORDER BY shapes.shape_pt_sequence) bp
                   GROUP BY bp.shape_id
                 )
-         SELECT DISTINCT ON (trips.shape_id) tableroutes.routes,
+         SELECT DISTINCT ON (trips.shape_id) tableroutes.routes_geom,
             tableroutes.shape_id,
             trips.route_id,
             trips.direction_id

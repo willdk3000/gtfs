@@ -28,7 +28,7 @@ module.exports = {
                 FROM (
                   SELECT jsonb_build_object(
                     'type',       'Feature',
-                    'geometry',   ST_AsGeoJSON(routes)::jsonb,
+                    'geometry',   ST_AsGeoJSON(routes_geom)::jsonb,
                     'properties', jsonb_build_object(
                                 'ID', shape_id,
                                 'ligne', route_id,
@@ -59,7 +59,7 @@ module.exports = {
                 FROM (
                   SELECT jsonb_build_object(
                     'type',       'Feature',
-                    'geometry',   ST_AsGeoJSON(routes)::jsonb,
+                    'geometry',   ST_AsGeoJSON(routes_geom)::jsonb,
                     'properties', jsonb_build_object(
                                 'ID', shape_id,
                                 'ligne', route_id,
@@ -78,7 +78,7 @@ module.exports = {
                 FROM traces
                 WHERE st_intersects(ST_SetSRID(ST_GeomFromGeoJSON(
                     '${req.body.intersect}'
-                    ),4326), traces.routes) = true`,   
+                    ),4326), traces.routes_geom) = true`,   
             ).then(result => {
                 res.json(result)
             });

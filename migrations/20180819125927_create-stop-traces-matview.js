@@ -10,7 +10,8 @@ exports.up = function(knex, Promise) {
                stop_times.departure_time,
                trips.shape_id,
                trips.trip_id,
-               trips.service_id
+               trips.service_id,
+               trips.direction_id
               FROM trips
                 LEFT JOIN stop_times ON stop_times.trip_id = trips.trip_id
            )
@@ -20,6 +21,7 @@ exports.up = function(knex, Promise) {
             tableshapearrets.trip_id,
             tableshapearrets.departure_time,
             tableshapearrets.service_id,
+            tableshapearrets.direction_id,
             stops.stop_name,
             stops.stop_code,
             stops.point_geog
