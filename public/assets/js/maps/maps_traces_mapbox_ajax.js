@@ -262,8 +262,8 @@ $(document).ready(function () {
             
             success: function(data) {
                 
-                console.log(data);
-                let ligne_intersect = JSON.stringify(draw.getAll().features[0].geometry);
+                let departs_intersect = data.rows;
+                console.log(departs_intersect)
             }
         })
     })
