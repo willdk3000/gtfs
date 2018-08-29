@@ -263,7 +263,7 @@ $(document).ready(function () {
             success: function(data) {
                 
                 console.log(data);
-
+                let ligne_intersect = JSON.stringify(draw.getAll().features[0].geometry);
             }
         })
     })

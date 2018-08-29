@@ -74,11 +74,74 @@ module.exports = {
 
             case ':intersects':
             return knex.raw(
-                `SELECT *
-                FROM traces
-                WHERE st_intersects(ST_SetSRID(ST_GeomFromGeoJSON(
-                    '${req.body.intersect}'
-                    ),4326), traces.routes_geom) = true`,   
+                `WITH tableroutesintersect AS (
+                        SELECT *
+                        FROM traces
+                        WHERE st_intersects(ST_SetSRID(ST_GeomFromGeoJSON(
+                            '${req.body.intersect}'
+                        ),4326), traces.routes_geom) = true
+                    ),
+                    voyperiodes AS (
+                    WITH depart_min AS (
+                        SELECT
+                        shape_id,	
+                        trip_id,
+                            MIN(hresecondes) as hs
+                        FROM
+                            stop_traces
+                        GROUP BY
+                            trip_id, shape_id
+                    )
+                    SELECT
+                        shape_id,
+                        SUM(
+                            CASE
+                            WHEN depart_min.hs > 14400 AND depart_min.hs <= 21599 THEN 1 
+                            ELSE 0
+                            END
+                        ) AS MA,
+                        SUM(
+                            CASE
+                            WHEN depart_min.hs > 21600 AND depart_min.hs <= 32399 THEN 1 
+                            ELSE 0
+                            END
+                        ) AS AM,
+                        SUM(
+                            CASE
+                            WHEN depart_min.hs > 32400 AND depart_min.hs <= 55799 THEN 1 
+                            ELSE 0
+                            END
+                        ) AS HP,
+                        SUM(
+                            CASE
+                            WHEN depart_min.hs > 55800 AND depart_min.hs <= 66599 THEN 1 
+                            ELSE 0
+                            END
+                        ) AS PM,
+                        SUM(
+                            CASE
+                            WHEN depart_min.hs > 66600 AND depart_min.hs <= 93600 THEN 1 
+                            ELSE 0
+                            END
+                        ) AS SO
+                    FROM
+                        depart_min
+                    GROUP BY
+                        shape_id
+                    )
+                    SELECT
+                        tableroutesintersect.shape_id,
+                        tableroutesintersect.route_id,
+                        tableroutesintersect.direction_id,
+                        voyperiodes.shape_id,
+                        voyperiodes.MA,
+                        voyperiodes.AM,
+                        voyperiodes.HP,
+                        voyperiodes.PM,
+                        voyperiodes.SO
+                    FROM tableroutesintersect
+                    LEFT JOIN voyperiodes ON tableroutesintersect.shape_id = voyperiodes.shape_id
+                    `,   
             ).then(result => {
                 res.json(result)
             });
