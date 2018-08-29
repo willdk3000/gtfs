@@ -245,9 +245,11 @@ $(document).ready(function () {
     let intersectPopup = new mapboxgl.Popup(
         {closeOnClick: false}
     );
-    intersectPopup.on('close', () => {
-        draw.deleteAll();
-    });
+
+
+    //intersectPopup.on('close', () => {
+    //    draw.deleteAll();
+    //});
 
     map.on('draw.create', () => {
         let ligne_intersect = JSON.stringify(draw.getAll().features[0].geometry);
@@ -262,6 +264,7 @@ $(document).ready(function () {
             
             success: function(data) {
                 
+                draw.deleteAll();
                 let departs_intersect = data.rows;
                 console.log(departs_intersect)
             }
