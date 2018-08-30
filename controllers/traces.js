@@ -74,17 +74,18 @@ module.exports = {
 
             case ':intersects':
             return knex.raw(
-                `WITH tableroutesintersect AS (
+                `WITH tintersect AS(
+                    (WITH tableroutesintersect AS (
                         SELECT *
                         FROM traces
                         WHERE st_intersects(ST_SetSRID(ST_GeomFromGeoJSON(
-                            '${req.body.intersect}'
-                        ),4326), traces.routes_geom) = true
+                            '{"coordinates":[[-73.46893400463986,45.52468112706461],[-73.46946393614215,45.52373437792377]],"type":"LineString"}'),4326),
+                                traces.routes_geom) = true
                     ),
                     voyperiodes AS (
                     WITH depart_min AS (
                         SELECT
-                        shape_id,	
+                        shape_id,
                         trip_id,
                             MIN(hresecondes) as hs
                         FROM
@@ -141,7 +142,22 @@ module.exports = {
                         voyperiodes.SO
                     FROM tableroutesintersect
                     LEFT JOIN voyperiodes ON tableroutesintersect.shape_id = voyperiodes.shape_id
-                    ORDER BY route_id, direction_id
+                    ORDER BY route_id, direction_id)
+                    )
+                    SELECT
+                         route_id, 
+                        direction_id,
+                         SUM (ma) AS ma,
+                        SUM (am) AS am,
+                        SUM (hp) AS hp,
+                        SUM (pm) AS pm,
+                        SUM (so) AS so
+                    FROM
+                         tintersect
+                    GROUP BY
+                         route_id, direction_id
+                    ORDER BY
+                        route_id, direction_id
                     `,   
             ).then(result => {
                 res.json(result)
