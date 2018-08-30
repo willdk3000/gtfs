@@ -217,7 +217,7 @@ $(document).ready(function () {
                         $tableBody.append($row);
                     })
                                                             
-                    var feature = e.features[0];
+                    //var feature = e.features[0];
                     new mapboxgl.Popup().setLngLat(map.unproject(e.point))
                         .setHTML("Arrêt " + num + "<br/>" + nom + "<br/>" + $tableBody[0].outerHTML )
                         .addTo(map);
@@ -252,8 +252,11 @@ $(document).ready(function () {
     //});
 
     map.on('draw.create', () => {
+        
+        let pt_tableau = draw.getAll().features[0].geometry;
         let ligne_intersect = JSON.stringify(draw.getAll().features[0].geometry);
-        console.log(ligne_intersect);
+        console.log(ligne_intersect)
+
         $.ajax({
             type: "POST",
             url: '/api/traces/:intersects',
@@ -263,10 +266,40 @@ $(document).ready(function () {
             },
             
             success: function(data) {
-                
                 draw.deleteAll();
+                
                 let departs_intersect = data.rows;
-                console.log(departs_intersect)
+
+                //création de la table qui contient les heures de passage
+                var $tableBody = $('<table></table>');
+
+                var $row = $('<tr></tr>');
+                $row.append($('<th></th>').text('Ligne'));
+                $row.append($('<th></th>').text('Direction'));
+                $row.append($('<th></th>').text('MA'));
+                $row.append($('<th></th>').text('AM'));
+                $row.append($('<th></th>').text('HP'));
+                $row.append($('<th></th>').text('PM'));
+                $row.append($('<th></th>').text('SO'));
+                $tableBody.append($row);
+
+                departs_intersect.forEach(function(e){
+                    var $row = $('<tr></tr>');
+                    $row.append($('<td></td>').text(e.route_id));
+                    $row.append($('<td></td>').text(e.direction_id));
+                    $row.append($('<td></td>').text(e.ma));
+                    $row.append($('<td></td>').text(e.am));
+                    $row.append($('<td></td>').text(e.hp));
+                    $row.append($('<td></td>').text(e.pm));
+                    $row.append($('<td></td>').text(e.so));
+                    $tableBody.append($row);
+                })
+                
+                new mapboxgl.Popup()
+                    .setLngLat((pt_tableau.coordinates[1]))
+                    .setHTML($tableBody[0].outerHTML)
+                    .addTo(map);
+
             }
         })
     })

@@ -141,6 +141,7 @@ module.exports = {
                         voyperiodes.SO
                     FROM tableroutesintersect
                     LEFT JOIN voyperiodes ON tableroutesintersect.shape_id = voyperiodes.shape_id
+                    ORDER BY route_id, direction_id
                     `,   
             ).then(result => {
                 res.json(result)

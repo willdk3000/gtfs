@@ -6485,3 +6485,27 @@ h6.panel-title,
 .popover[class*=border-].left > .arrow:after {
   border-left-color: inherit;
 }
+/* ------------------------------------------------------------------------------
+*
+*  # Tables des popups
+*
+*  
+*
+*  Version: 1.0
+*  Latest update: 29 août 2018
+*
+* ---------------------------------------------------------------------------- */
+
+th, td {
+  padding: 5px 30px 5px 10px;
+  border-spacing:0px;
+  font-size:90%;
+  margin:0px;
+}
+
+th {
+  background-color: #d1818183
+}
+
+tr:nth-child(even) {background: #fafafa}
+tr:nth-child(odd) {background: rgba(199, 199, 199, 0.384)}
