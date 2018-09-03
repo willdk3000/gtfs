@@ -10,13 +10,13 @@
 	<!-- Global stylesheets -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
 	<!-- Controle des icones -->
-	<link href="assets/stylesheets/css2/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+	<link href="assets/stylesheets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
 	<!-- Bootstrap 3 -->
-	<link href="assets/stylesheets/css2/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="assets/stylesheets/css/bootstrap.css" rel="stylesheet" type="text/css">
 	<!-- Controle du style -->
-	<link href="assets/stylesheets/css2/core.css" rel="stylesheet" type="text/css">
+	<link href="assets/stylesheets/css/core.css" rel="stylesheet" type="text/css">
 	<!-- Controle du style du sidebar -->
-	<link href="assets/stylesheets/css2/components.css" rel="stylesheet" type="text/css">
+	<link href="assets/stylesheets/css/components.css" rel="stylesheet" type="text/css">
 	<!-- Semble pas servir -->
 	<!--<link href="assets/stylesheets/css2/colors.css" rel="stylesheet" type="text/css"> -->
 
@@ -40,7 +40,10 @@
 
 	<!-- Style de la mapboxgl, le lien ne se fait pas avec le fichier component.css -->
     <style>
-		#mapboxgl-container { position:absolute; top:30px; bottom:10px; width:95%; }
+		#mapboxgl-container { 
+			display:flex;
+			height:100%;
+			width:100%; }
 		
 		.mapboxgl-popup {
   			max-width: 200px;

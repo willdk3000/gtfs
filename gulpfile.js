@@ -3,7 +3,7 @@
 const gulp = require('gulp'),
     gutil = require('gulp-util'),
     knex = require('./config/knex'),
-    shell = require('gulp-shell'),
+    //shell = require('gulp-shell'),
     sass   = require('gulp-sass');
 
 //Initialisation
@@ -32,7 +32,7 @@ gulp.task('import_tables', function() {
         REFRESH MATERIALIZED VIEW traces WITH DATA;
         REFRESH MATERIALIZED VIEW stop_traces WITH DATA;
         REFRESH MATERIALIZED VIEW stop_triptimes WITH DATA;`
-        )      
+        )     
 });
 
 

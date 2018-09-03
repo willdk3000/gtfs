@@ -20618,7 +20618,6 @@ label.display-block {
   fill:red!important;
 }
 
-
 /* ------------------------------------------------------------------------------
 *
 *  # Dropdown form
@@ -20636,4 +20635,8 @@ label.display-block {
 form{
     display:inline-block;
     padding:20px;
+}
+div.choix{
+  display:flex;
+  padding:5px;
 }

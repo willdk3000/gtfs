@@ -9,11 +9,11 @@
 
 	<!-- Global stylesheets -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
-	<link href="assets/stylesheets/css2/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
-	<link href="assets/stylesheets/css2/bootstrap.css" rel="stylesheet" type="text/css">
-	<link href="assets/stylesheets/css2/core.css" rel="stylesheet" type="text/css">
-	<link href="assets/stylesheets/css2/components.css" rel="stylesheet" type="text/css">
-	<link href="assets/stylesheets/css2/colors.css" rel="stylesheet" type="text/css">
+	<link href="assets/stylesheets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+	<link href="assets/stylesheets/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="assets/stylesheets/css/core.css" rel="stylesheet" type="text/css">
+	<link href="assets/stylesheets/css/components.css" rel="stylesheet" type="text/css">
+	<link href="assets/stylesheets/css/colors.css" rel="stylesheet" type="text/css">
 
 	<!-- theme stylesheets -->
 	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css' rel='stylesheet' />
@@ -34,9 +34,13 @@
 	<!-- /theme JS files -->
 
 
-	<!-- Style de la mapboxgl -->
+	<!-- Style de la mapboxgl (la hauteur doit absolument être spécifiée si la position
+	de la map est relative -->
     <style>
-		#mapboxgl-container { position:absolute; top:150px; bottom:10px; width:95%; }
+		#mapboxgl-container { 
+			display:flex;
+			height:100%;
+			width:100%; }
 		
 		.mapboxgl-popup {
   			max-width: 600px;
@@ -223,7 +227,8 @@
 						<div class="panel-body">
 							<p class="content-group"> <code>Mapbox GL</code> permet d'afficher de grandes quantités de données en utilisant le <code>GPU</code> plutôt que le CPU pour la visualisation de données.</p>
 														
-							<form class="ey">
+							<div class = "choix">
+							<p class = "choix"><form class="ey">
 								<label>Ligne</label><br/>
 								<select id="Lignes">
 									<option value="Toutes">Choisir</option>
@@ -239,11 +244,12 @@
 								</select>
 								<br>
 								<button id="filtreTrace" type="button">Filtrer</button>
-							</form>
-							
-							<div class = 'map-container'>
-								<div id='mapboxgl-container'></div>
-							</div>
+							</form></p>
+						</div>
+
+						<div class = 'map-container'>
+							<div id='mapboxgl-container'></div>
+						</div>
 							
 						</div>
 					</div>
