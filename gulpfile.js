@@ -1,10 +1,10 @@
 /* gulpfile */
 
 const gulp = require('gulp'),
-    gutil = require('gulp-util'),
+    //gutil = require('gulp-util'),
     knex = require('./config/knex'),
     //shell = require('gulp-shell'),
-    sass   = require('gulp-sass');
+    //sass   = require('gulp-sass');
 
 //Initialisation
 //gulp.task('default', function() {
@@ -12,9 +12,9 @@ const gulp = require('gulp'),
 //});
 
 //Importer tables
-gulp.task('import_tables', function() {
+gulp.task('import_tables', gulp.series(function(done) {
     const path=__dirname+'/source/'+'20180820'
-    return knex.raw(
+    return (knex.raw(
         `\COPY routes FROM '${path}/routes.txt' DELIMITER ',' CSV HEADER;
         \COPY shapes (shape_id,shape_pt_lat,shape_pt_lon,shape_pt_sequence,shape_dist_traveled) 
         FROM '${path}/shapes.txt' DELIMITER ',' CSV HEADER;
@@ -31,21 +31,20 @@ gulp.task('import_tables', function() {
         ((SUBSTRING(departure_time FROM 7 FOR 2)::int));
         REFRESH MATERIALIZED VIEW traces WITH DATA;
         REFRESH MATERIALIZED VIEW stop_traces WITH DATA;
-        REFRESH MATERIALIZED VIEW stop_triptimes WITH DATA;`
-        )     
-});
+        REFRESH MATERIALIZED VIEW stop_triptimes WITH DATA;`)
+        , done())
+}))
 
 
-gulp.task('build-css', function() {
-    return gulp.src('./public/assets/stylesheets/scss/**/*.scss')
-      .pipe(sass())
-      .pipe(gulp.dest('./public/assets/stylesheets/css'));
-  });
+//gulp.task('build-css', function() {
+//    return gulp.src('./public/assets/stylesheets/scss/**/*.scss')
+//      .pipe(sass())
+//      .pipe(gulp.dest('./public/assets/stylesheets/css'));
+//  });
 
-gulp.task('watch', function() {
-    gulp.watch('./public/assets/stylesheets/scss/**/*.scss', ['build-css']);
-  });
-
+//gulp.task('watch', function() {
+//    gulp.watch('./public/assets/stylesheets/scss/**/*.scss', ['build-css']);
+//  });
 
 
 
