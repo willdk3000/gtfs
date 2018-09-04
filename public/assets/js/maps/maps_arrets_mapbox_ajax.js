@@ -18,9 +18,13 @@ $(function () {
         //    requete:requeteDyn
         //},
         success: function(data) {
-    
+            
+        //Extraction des arrêts de la requête SQL
         var geojson = JSON.parse(JSON.stringify(data.rows[0].jsonb_build_object));
         
+        //Création de buffers avec turf
+        var buffered = turf.buffer(geojson, 300, {units: 'meters'});
+
         mapboxgl.accessToken = 'pk.eyJ1Ijoid2RvdWNldGsiLCJhIjoiY2pnamprcmpjMGYwbDJ4cW5qa2luYTVmZSJ9.q0GEqGvVpCyvAY09gr4vsA';
         
         var map = new mapboxgl.Map({
@@ -33,27 +37,85 @@ $(function () {
         //Création de la carte
         map.on('load', function () {
             //Source de données
-            map.addSource("arrets", {
+            map.addSource(
+                "arrets", {
                     "type": "geojson",
                     "data": geojson
-            });
+                }
+            );
+            map.addSource(
+                "buffers", {
+                        "type": "geojson",
+                        "data": buffered
+                    }
+            );
+            
+            //Couche de buffers (la première couche appelée se trouve en dessous)
+            map.addLayer(
+                {
+                "id": "buffers",
+                "type": "fill",
+                "source": "buffers",
+                "paint": {
+                    "fill-color": "#b30000",
+                    "fill-opacity": 0.1
+                    }
+                }
+            );
+
             //Couche de points
-            map.addLayer({
+            map.addLayer(
+                {
                 "id": "arrets",
                 "type": "circle",
                 "source": "arrets",
                 "paint": {
                         "circle-radius": 4,
                         "circle-color": "#ff0000"
+                        }
                 }
-            });
+            );
+
         });
+
+        //Couches à afficher
+        var toggleableLayerIds = [ 'arrets', 'buffers' ];
+
+        for (var i = 0; i < toggleableLayerIds.length; i++) {
+            var id = toggleableLayerIds[i];
+
+            var link = document.createElement('a');
+            link.href = '#';
+            link.className = 'active';
+            link.textContent = id;
+
+            link.onclick = function (e) {
+                var clickedLayer = this.textContent;
+                e.preventDefault();
+                e.stopPropagation();
+
+                var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+
+                if (visibility === 'visible') {
+                    map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+                    this.className = '';
+                } else {
+                    this.className = 'active';
+                    map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+                }
+            };
+
+            var layers = document.getElementById('menu');
+            layers.appendChild(link);
+        }
+
+
 
         //Gestion des popup
         map.on('click', 'arrets', function(e) {
             let code= e.features[0].properties.code;
             let nom = e.features[0].properties.name;
-            //var feature = e.features[0];
+
             new mapboxgl.Popup().setLngLat(map.unproject(e.point))
                 .setHTML("Code " + code + "<br/>" + " Arrêt " + nom )
                 .addTo(map);

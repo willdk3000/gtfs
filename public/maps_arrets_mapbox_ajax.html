@@ -42,7 +42,7 @@
 	<!-- Style de la mapboxgl, le lien ne se fait pas avec le fichier component.css -->
     <style>
 		#mapboxgl-container { 
-			display:flex;
+			float:center;
 			height:100%;
 			width:100%; }
 		
@@ -227,10 +227,16 @@
 						</div>
 
 						<div class="panel-body">
-							<p class="content-group"> <code>Mapbox GL</code> permet d'afficher de grandes quantités de données en utilisant le <code>GPU</code> plutôt que le CPU pour la visualisation de données.</p>
+							<p class="content-group"> <code>Mapbox GL</code> permet d'afficher de grandes quantités de données en utilisant le <code>GPU</code> plutôt que le CPU pour la visualisation de données.</br>
+							Les boutons ci-dessous permettent d'afficher ou de masquer les couches. La librairie <code>Turfjs</code> permet de générer les buffers à partir de geojson</p>
+							
 
-							<!--<div class="map-container map-layer-fusion-tables"></div>-->
+							<!--Menu qui contrôle l'affichage-->
+								
+							<p class="choix"><nav id="menu"></nav></p>
+
 							<div class = 'map-container'>
+								
 								<div id='mapboxgl-container'></div>
 							</div>
 							
