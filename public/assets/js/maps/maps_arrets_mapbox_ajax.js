@@ -53,7 +53,7 @@ $(function () {
         map.on('click', 'arrets', function(e) {
             let code= e.features[0].properties.code;
             let nom = e.features[0].properties.name;
-            var feature = e.features[0];
+            //var feature = e.features[0];
             new mapboxgl.Popup().setLngLat(map.unproject(e.point))
                 .setHTML("Code " + code + "<br/>" + " Arrêt " + nom )
                 .addTo(map);
