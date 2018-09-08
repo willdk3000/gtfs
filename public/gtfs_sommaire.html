@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<title>GTFS : arrêts</title>
+	<title>GTFS : résumé</title>
 
 	<!-- Global stylesheets -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
@@ -18,12 +18,7 @@
 	<!-- Controle du style du sidebar -->
 	<link href="assets/stylesheets/css/components.css" rel="stylesheet" type="text/css">
 	<!-- Semble pas servir -->
-	<!--<link href="assets/stylesheets/css2/colors.css" rel="stylesheet" type="text/css"> -->
-
-	<!-- theme stylesheets -->
-	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css' rel='stylesheet' />
-	<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.4/mapbox-gl-draw.css' type='text/css' />
-	<!-- /theme stylesheets -->
+	<link href="assets/stylesheets/css/colors.css" rel="stylesheet" type="text/css">
 
 	<!-- Core JS files -->
 	<script type="text/javascript" src="assets/js/core/jquery.min.js"></script>
@@ -32,30 +27,10 @@
 	<!-- /core JS files -->
 
 	<!-- theme JS files -->
-	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js'></script>
-	<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.4/mapbox-gl-draw.js'></script>
-	<script type="text/javascript" src="assets/js/maps/maps_arrets_mapbox_ajax.js"></script>
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/Turf.js/5.1.5/turf.min.js'></script>
+	<script type="text/javascript" src="assets/js/maps/gtfs_sommaire.js"></script>
+	<script type="text/javascript" src="assets/js/libraries/time/moment.min.js"></script>
+	<script type="text/javascript" src="assets/js/libraries/animation/jquery.animateNumber.min.js"></script>
 	<!-- /theme JS files -->
-
-
-	<!-- Style de la mapboxgl, le lien ne se fait pas avec le fichier component.css -->
-    <style>
-		#mapboxgl-container { 
-			float:center;
-			height:100%;
-			width:100%; }
-		
-		.mapboxgl-popup {
-  			max-width: 200px;
-		}
-
-		.mapboxgl-popup-content {
-			text-align: center;
-			font-family: 'Open Sans', sans-serif;
-		}
-    </style>
-	<!-- /Style de la mapboxgl -->
 
 </head>
 
@@ -135,8 +110,8 @@
 								<li>
 									<a href="#"><i class="icon-map5"></i> <span>GTFS</span></a>
 									<ul>
-										<li><a href="gtfs_sommaire.html">Sommaire</a></li>
-                                        <li class="active"><a href="maps_arrets_mapbox_ajax.html">Arrêts</a></li>    
+										<li class="active"><a href="gtfs_sommaire.html">Sommaire</a></li>
+										<li><a href="maps_arrets_mapbox_ajax.html">Arrêts</a></li>    
                                         <li><a href="maps_traces_mapbox_ajax.html">Tracés</a></li>
 									</ul>
 								</li>
@@ -202,7 +177,7 @@
 						<ul class="breadcrumb">
 							<li><i class="icon-home2 position-left"></i> Analyses</li>
 							<li>GTFS</li>
-							<li class="active">Arrêts</li>
+							<li class="active">Sommaire</li>
 						</ul>
 
 					</div>
@@ -214,10 +189,10 @@
 				<div class="content">
 
 
-					<!-- Mapbox GL -->
+					<!-- stats -->
 					<div class="panel panel-flat">
 						<div class="panel-heading">
-							<h5 class="panel-title">Mapbox GL</h5>
+							<h5 class="panel-title">GTFS</h5>
 							<div class="heading-elements">
 								<ul class="icons-list">
 			                		<li><a data-action="collapse"></a></li>
@@ -228,22 +203,116 @@
 						</div>
 
 						<div class="panel-body">
-							<p class="content-group"> <code>Mapbox GL</code> permet d'afficher de grandes quantités de données en utilisant le <code>GPU</code> plutôt que le CPU pour la visualisation de données.</br>
-							Les boutons ci-dessous permettent d'afficher ou de masquer les couches. La librairie <code>Turfjs</code> permet de générer les buffers à partir de geojson</p>
-							
-
-							<!--Menu qui contrôle l'affichage-->
-								
-							<p class="choix"><nav id="menu"></nav></p>
-
-							<div class = 'map-container'>
-								
-								<div id='mapboxgl-container'></div>
-							</div>
-							
+								<p class="content-group"> <code>GTFS</code> est le standard mis en place par <code>Google</code> pour planifier un déplacements en <code>transport en commun</code> dans Google Maps.</br>
+								<p class="content-group"> L'assignation en cours débute le <code id="debut"></code> et se termine le <code id="fin"></code>.</p>
 						</div>
 					</div>
-					<!-- /Mapbox GL -->
+
+					<!-- Quick stats boxes -->
+						<div class="row">
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+	
+									<!-- Assignation -->
+									<div class="panel bg-teal-400">
+										<div class="panel-body">
+											
+											<h3 class="no-margin">
+												<span id="joursemaine">0</span>
+											</h3>
+											Jours de semaine dans l'assignation
+											<div class="text-muted text-size-small">
+												<p style="display:inline" id="joursamedi" name="joursamedi"></p>
+												<p style="display:inline">samedis dans l'assignation</p>
+												</br>
+												<p style="display:inline" id="jourdimanche" name="jourdimanche"></p>
+												<p style="display:inline">dimanches dans l'assignation</p>
+											</div>
+										</div>
+										<div class="container-fluid">
+											<div id="members-online"></div>
+										</div>
+									</div>
+									<!-- /assignation -->
+								</div>
+	
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+	
+									<!-- Voyages -->
+									<div class="panel bg-pink-400">
+										<div class="panel-body">
+											<div class="heading-elements">
+											</div>
+											<h3 class="no-margin">
+													<span id="voysemaine">0</span>
+											</h3>
+											Voyages par jour de semaine
+											<div class="text-muted text-size-small">
+												<p style="display:inline" id="voysamedi" name="voysamedi"></p>
+												<p style="display:inline">voyages de samedi</p>
+												</br>
+												<p style="display:inline" id="voydimanche" name="voydimanche"></p>
+												<p style="display:inline">voyages de dimanche</p>
+											</div>
+										</div>
+											<div id="server-load"></div>
+									</div>
+									<!-- /voyages -->
+								</div>
+
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+	
+									<!-- Heures -->
+									<div class="panel bg-blue-400">
+										<div class="panel-body">
+											<div class="heading-elements">
+												</div>
+												<h3 class="no-margin">
+														<span id="hresemaine">0</span>
+													</h3>
+												Heures de service par jour de semaine
+												<div class="text-muted text-size-small">
+													<p style="display:inline" id="hresamedi" name="hresamedi"></p>
+													<p style="display:inline">heures de service le samedi</p>
+													</br>
+													<p style="display:inline" id="hredimanche" name="hredimanche"></p>
+													<p style="display:inline">heures de service le dimanche</p>
+												</div>
+										</div>
+												<div id="today-revenue"></div>
+									</div>
+									<!-- /heures -->
+								</div>
+
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+	
+										<!-- Today's revenue -->
+										<div class="panel bg-orange-800">
+											<div class="panel-body">
+												<div class="heading-elements">
+												</div>
+												<h3 class="no-margin">
+														<span id="distsemaine">0</span>
+													</h3>
+												KM de service par jour de semaine
+												<div class="text-muted text-size-small">
+													<p style="display:inline" id="distsamedi" name="distsamedi"></p>
+													<p style="display:inline">km le samedi</p>
+													</br>
+													<p style="display:inline" id="distdimanche" name="distdimanche"></p>
+													<p style="display:inline">km le dimanche</p>
+												</div>
+										</div>
+													<div id="today-revenue"></div>
+										</div>
+										<!-- /today's revenue -->
+									</div>
+
+						</div>
+							<!-- /quick stats boxes -->
+					</div>
+
+				</div>
+				<!-- /stats -->
 
 
 

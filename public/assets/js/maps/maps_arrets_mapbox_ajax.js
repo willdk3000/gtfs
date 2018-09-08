@@ -36,13 +36,14 @@ $(function () {
 
         //Création de la carte
         map.on('load', function () {
-            //Source de données
+            //Source de données arrêts
             map.addSource(
                 "arrets", {
                     "type": "geojson",
                     "data": geojson
                 }
             );
+            //Source de données buffers
             map.addSource(
                 "buffers", {
                         "type": "geojson",
