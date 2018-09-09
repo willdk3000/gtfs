@@ -69,31 +69,6 @@
 			<div class="sidebar sidebar-main">
 				<div class="sidebar-content">
 
-					<!-- User menu -->
-					<div class="sidebar-user">
-						<div class="category-content">
-							<div class="media">
-								<a href="#" class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></a>
-								<div class="media-body">
-									<span class="media-heading text-semibold">Usager</span>
-									<div class="text-size-mini text-muted">
-										<i class="icon-pin text-size-small"></i> &nbsp;Département
-									</div>
-								</div>
-
-								<div class="media-right media-middle">
-									<ul class="icons-list">
-										<li>
-											<a href="#"><i class="icon-cog3"></i></a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- /user menu -->
-
-
 					<!-- Main navigation -->
 					<div class="sidebar-category sidebar-category-visible">
 						<div class="category-content no-padding">
@@ -189,24 +164,7 @@
 				<div class="content">
 
 
-					<!-- stats -->
-					<div class="panel panel-flat">
-						<div class="panel-heading">
-							<h5 class="panel-title">GTFS</h5>
-							<div class="heading-elements">
-								<ul class="icons-list">
-			                		<li><a data-action="collapse"></a></li>
-			                		<li><a data-action="reload"></a></li>
-			                		<li><a data-action="close"></a></li>
-			                	</ul>
-		                	</div>
-						</div>
 
-						<div class="panel-body">
-								<p class="content-group"> <code>GTFS</code> est le standard mis en place par <code>Google</code> pour planifier un déplacements en <code>transport en commun</code> dans Google Maps.</br>
-								<p class="content-group"> L'assignation en cours débute le <code id="debut"></code> et se termine le <code id="fin"></code>.</p>
-						</div>
-					</div>
 
 					<!-- Quick stats boxes -->
 						<div class="row">
@@ -309,7 +267,30 @@
 
 						</div>
 							<!-- /quick stats boxes -->
-					</div>
+					
+					
+					<!-- Résumé-->
+					<div class="panel panel-flat">
+							<div class="panel-heading">
+									<div class="heading-elements">
+											<ul class="icons-list">
+												<li><a data-action="collapse"></a></li>
+												<li><a data-action="reload"></a></li>
+												<li><a data-action="close"></a></li>
+											</ul>
+									</div>
+								<h5 class="panel-title">GTFS : </h5>
+								<h6 id="debut" style="display:inline"></h6><h6 style="display:inline"> au </h6><h6 id="fin" style="display:inline"></h6>
+
+							</div>
+	
+							<div class="panel-body">
+									<p class="content-group"> <code>GTFS</code> est le standard mis en place par <code>Google</code> pour planifier un déplacement en <code>transport en commun</code> dans Google Maps.</br>
+							</div>
+						</div>						
+					
+					
+						</div>
 
 				</div>
 				<!-- /stats -->

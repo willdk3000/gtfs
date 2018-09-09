@@ -6496,6 +6496,7 @@ h6.panel-title,
 *
 * ---------------------------------------------------------------------------- */
 
+
 th, td {
   padding: 5px 30px 5px 10px;
   border-spacing:0px;
@@ -6507,5 +6508,10 @@ th {
   background-color: #d1818183
 }
 
-tr:nth-child(even) {background: #fafafa}
-tr:nth-child(odd) {background: rgba(199, 199, 199, 0.384)}
+tr:nth-child(even) {
+  background: #fafafa;
+}
+
+tr:nth-child(odd) {
+  background: rgba(199, 199, 199, 0.384);
+}

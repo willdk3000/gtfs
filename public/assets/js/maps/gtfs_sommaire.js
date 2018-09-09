@@ -120,12 +120,10 @@ $(function () {
 
         $(document).ajaxStop(function(){
             $('#joursemaine').animateNumber({ number: weekdayCounter });
+            document.getElementById('joursamedi').innerHTML = samediCounter;
+            document.getElementById('jourdimanche').innerHTML = dimancheCounter;
         });
-        //document.getElementById('joursemaine').innerHTML = weekdayCounter;
-        document.getElementById('joursamedi').innerHTML = samediCounter;
-        document.getElementById('jourdimanche').innerHTML = dimancheCounter;
 
-        console.log(startdate)
         document.getElementById('debut').innerHTML = startdate._i;
         document.getElementById('fin').innerHTML = enddate._i;
 
@@ -153,11 +151,10 @@ $(function () {
         
         $(document).ajaxStop(function(){
             $('#voysemaine').animateNumber({ number: voysemaine });
+            document.getElementById('voysamedi').innerHTML = voysamedi
+            document.getElementById('voydimanche').innerHTML = voydimanche
         });
         
-        //document.getElementById('voysemaine').innerHTML = voysemaine
-        document.getElementById('voysamedi').innerHTML = voysamedi
-        document.getElementById('voydimanche').innerHTML = voydimanche
 
     }
 
@@ -186,11 +183,10 @@ $(function () {
 
         $(document).ajaxStop(function(){
             $('#hresemaine').animateNumber({ number: hresemaine });
+            document.getElementById('hresamedi').innerHTML = hresamedi;
+            document.getElementById('hredimanche').innerHTML = hredimanche;
         });
         
-        //document.getElementById('hresemaine').innerHTML = hresemaine;
-        document.getElementById('hresamedi').innerHTML = hresamedi;
-        document.getElementById('hredimanche').innerHTML = hredimanche;
         
     }
 
@@ -220,11 +216,11 @@ $(function () {
         
         $(document).ajaxStop(function(){
             $('#distsemaine').animateNumber({ number: distsemaine });
+            document.getElementById('distsamedi').innerHTML = distsamedi;
+            document.getElementById('distdimanche').innerHTML = distdimanche;
         });
         
-        //document.getElementById('distsemaine').innerHTML = distsemaine;
-        document.getElementById('distsamedi').innerHTML = distsamedi;
-        document.getElementById('distdimanche').innerHTML = distdimanche;
+
     }
 
 
