@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<title>GTFS : résumé</title>
+	<title>GTFS : Login</title>
 
 	<!-- Global stylesheets -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
@@ -26,15 +26,24 @@
 	<script type="text/javascript" src="assets/js/core/app.js"></script>
 	<!-- /core JS files -->
 
-	<!-- theme JS files -->
-	<script type="text/javascript" src="assets/js/maps/gtfs_sommaire.js"></script>
+    <!-- theme JS files 
+    l'ordre d'apparition dans cette liste doit respecter
+    l'ordre dans lequel chaque script est appelé-->
 	<script type="text/javascript" src="assets/js/libraries/time/moment.min.js"></script>
-	<script type="text/javascript" src="assets/js/libraries/animation/jquery.animateNumber.min.js"></script>
+    <script type="text/javascript" src="assets/js/libraries/animation/jquery.animateNumber.min.js"></script>
+	<script type="text/javascript" src="assets/js/scripts/shared.js"></script>
+	<script type="text/javascript" src="assets/js/scripts/login.js"></script>
+	
+
 	<!-- /theme JS files -->
 
 </head>
 
 <body>
+	
+	<script type="text/javascript">
+        redirectIfLoggedIn();
+    </script>
 
 	<!-- Main navbar -->
 	<div class="navbar navbar-inverse">
@@ -76,17 +85,18 @@
 
 								<!-- Main -->
 								<li class="navigation-header"><span>Accueil</span> <i class="icon-menu" title="Accueil"></i></li>
-															
-									<li><a href="login.html"><i class="icon-lock"></i> <span>Login</span></a></li>
-									<li><a href="signup.html"><i class="icon-user"></i> <span>Signup</span></a></li>
 								
+								
+								<li class="active"><a href="login.html"><i class="icon-lock"></i> <span>Login</span></a></li>
+								<li><a href="signup.html"><i class="icon-user"></i> <span>Signup</span></a></li>
+
 								<!-- Data visualization -->
 								<li class="navigation-header"><span>Analyses</span> <i class="icon-menu" title="Analyses"></i></li>
 		
 								<li>
 									<a href="#"><i class="icon-map5"></i> <span>GTFS</span></a>
 									<ul>
-										<li class="active"><a href="gtfs_sommaire.html">Sommaire</a></li>
+										<li><a href="gtfs_sommaire.html">Sommaire</a></li>
 										<li><a href="maps_arrets_mapbox_ajax.html">Arrêts</a></li>    
                                         <li><a href="maps_traces_mapbox_ajax.html">Tracés</a></li>
 									</ul>
@@ -144,16 +154,14 @@
 				<div class="page-header page-header-default">
 					<div class="page-header-content">
 						<div class="page-title">
-							<h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Analyses</span> - GTFS</h4>
+							<h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Login</span></h4>
 						</div>
 
 					</div>
 
 					<div class="breadcrumb-line">
 						<ul class="breadcrumb">
-							<li><i class="icon-home2 position-left"></i> Analyses</li>
-							<li>GTFS</li>
-							<li class="active">Sommaire</li>
+							<li><i class="icon-home2 position-left"></i> Login</li>
 						</ul>
 
 					</div>
@@ -163,142 +171,25 @@
 
 				<!-- Content area -->
 				<div class="content">
-
-
-
-
-					<!-- Quick stats boxes -->
-						<div class="row">
-								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-	
-									<!-- Assignation -->
-									<div class="panel bg-teal-400">
-										<div class="panel-body">
-											
-											<h3 class="no-margin">
-												<span id="joursemaine">0</span>
-											</h3>
-											Jours de semaine dans l'assignation
-											<div class="text-muted text-size-small">
-												<p style="display:inline" id="joursamedi" name="joursamedi"></p>
-												<p style="display:inline">samedis dans l'assignation</p>
-												</br>
-												<p style="display:inline" id="jourdimanche" name="jourdimanche"></p>
-												<p style="display:inline">dimanches dans l'assignation</p>
-											</div>
-										</div>
-										<div class="container-fluid">
-											<div id="members-online"></div>
-										</div>
-									</div>
-									<!-- /assignation -->
+					<main>
+						<section>					
+							<form class = "form col-lg-4">
+								<div class="form-group">
+									<label for="email">Email</label>
+									<input type="email" class="form-control" id="email" placeholder="hello@world.com" required>
 								</div>
-	
-								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-	
-									<!-- Voyages -->
-									<div class="panel bg-pink-400">
-										<div class="panel-body">
-											<div class="heading-elements">
-											</div>
-											<h3 class="no-margin">
-													<span id="voysemaine">0</span>
-											</h3>
-											Voyages par jour de semaine
-											<div class="text-muted text-size-small">
-												<p style="display:inline" id="voysamedi" name="voysamedi"></p>
-												<p style="display:inline">voyages de samedi</p>
-												</br>
-												<p style="display:inline" id="voydimanche" name="voydimanche"></p>
-												<p style="display:inline">voyages de dimanche</p>
-											</div>
-										</div>
-											<div id="server-load"></div>
-									</div>
-									<!-- /voyages -->
+								<div class="form-group">
+									<label for="password">Password</label>
+									<input type="password" class="form-control" id="password" placeholder="" required>
 								</div>
-
-								<div class="clearfix visible-sm"></div>
-								
-								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-	
-									<!-- Heures -->
-									<div class="panel bg-blue-400">
-										<div class="panel-body">
-											<div class="heading-elements">
-												</div>
-												<h3 class="no-margin">
-														<span id="hresemaine">0</span>
-													</h3>
-												Heures de service par jour de semaine
-												<div class="text-muted text-size-small">
-													<p style="display:inline" id="hresamedi" name="hresamedi"></p>
-													<p style="display:inline">heures de service le samedi</p>
-													</br>
-													<p style="display:inline" id="hredimanche" name="hredimanche"></p>
-													<p style="display:inline">heures de service le dimanche</p>
-												</div>
-										</div>
-												<div id="today-revenue"></div>
-									</div>
-									<!-- /heures -->
-								</div>
-
-								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-	
-										<!-- Today's revenue -->
-										<div class="panel bg-orange-800">
-											<div class="panel-body">
-												<div class="heading-elements">
-												</div>
-												<h3 class="no-margin">
-														<span id="distsemaine">0</span>
-													</h3>
-												KM de service par jour de semaine
-												<div class="text-muted text-size-small">
-													<p style="display:inline" id="distsamedi" name="distsamedi"></p>
-													<p style="display:inline">km le samedi</p>
-													</br>
-													<p style="display:inline" id="distdimanche" name="distdimanche"></p>
-													<p style="display:inline">km le dimanche</p>
-												</div>
-										</div>
-													<div id="today-revenue"></div>
-										</div>
-										<!-- /today's revenue -->
-									</div>
-
-						</div>
-							<!-- /quick stats boxes -->
-					
-					
-					<!-- Résumé-->
-					<div class="panel panel-flat">
-							<div class="panel-heading">
-									<div class="heading-elements">
-											<ul class="icons-list">
-												<li><a data-action="collapse"></a></li>
-												<li><a data-action="reload"></a></li>
-												<li><a data-action="close"></a></li>
-											</ul>
-									</div>
-								<h5 class="panel-title">GTFS : </h5>
-								<h6 id="debut" style="display:inline"></h6><h6 style="display:inline"> au </h6><h6 id="fin" style="display:inline"></h6>
-
-							</div>
-	
-							<div class="panel-body">
-									<p class="content-group"> <code>GTFS</code> est le standard mis en place par <code>Google</code> pour planifier un déplacement en <code>transport en commun</code> dans Google Maps.</br>
-							</div>
-							</div>						
-					
-					
-					</div>
-
+								<p class="alert-danger" role="alert" id="errorMessage"></p>
+								<button type="submit" class="btn btn-success">
+									Login
+								</button>
+							</form>
+						</section>
+					</main>
 				</div>
-				<!-- /stats -->
-
-
 
 					<!-- Footer -->
 					<div class="footer text-muted">

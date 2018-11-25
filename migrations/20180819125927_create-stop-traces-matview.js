@@ -26,6 +26,8 @@ exports.up = function(knex, Promise) {
             tableshapearrets.direction_id,
             stops.stop_name,
             stops.stop_code,
+            stops.stop_lat,
+            stops.stop_lon,
             stops.point_geog
         FROM tableshapearrets
         LEFT JOIN stops ON stops.stop_id = tableshapearrets.stop_id

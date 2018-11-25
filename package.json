@@ -22,26 +22,29 @@
   },
   "homepage": "https://github.com/willdk3000/gtfs#readme",
   "dependencies": {
+    "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
-    "dotenv": "^6.0.0",
-    "express": "^4.16.3",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
     "gulp": "^4.0.0",
+    "handlebars": "^4.0.12",
+    "hbs": "^4.0.1",
     "knex": "^0.15.2",
-    "knex-migrate": "^1.6.1",
-    "morgan": "^1.9.0",
-    "pg": "^7.4.3",
+    "knex-migrate": "^1.7.0",
+    "morgan": "^1.9.1",
+    "pg": "^7.6.1",
     "pg-hstore": "^2.3.2",
-    "pg-promise": "^8.4.5"
+    "pg-promise": "^8.5.2"
   },
   "devDependencies": {
-    "gulp-coffee": "latest",
+    "gulp-coffee": "^3.0.3",
     "gulp-concat": "latest",
     "gulp-connect": "latest",
     "gulp-run": "latest",
-    "gulp-sass": "latest",
+    "gulp-sass": "^4.0.2",
     "gulp-uglify": "latest",
     "gulp-util": "latest",
-    "nodemon": "^1.18.3"
+    "nodemon": "^1.18.6"
   }
 }
